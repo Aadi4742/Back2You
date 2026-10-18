@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Back2You Team & Mission</title>
+  <meta name="description" content="Discover the story, mission, and engineering team behind Back2You — the campus lost and found management platform.">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- Sticky Navbar -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="m10 15 5-3-5-3v6Z"/>
+        </svg>
+        Back2You
+        <span class="brand-badge">Campus</span>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="index.html#how-it-works" class="nav-link">How It Works</a></li>
+          <li><a href="index.html#recent-items" class="nav-link">Recent Items</a></li>
+          <li><a href="about.html" class="nav-link active">About Team</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="index.html#search" class="btn btn-outline">
+          <i data-lucide="search" style="width: 16px; height: 16px;"></i> Browse Items
+        </a>
+        <a href="contact.html" class="btn btn-primary">
+          <i data-lucide="mail" style="width: 16px; height: 16px;"></i> Get in Touch
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- About Hero -->
+  <section class="hero-section" style="padding: 4rem 0 3.5rem 0;">
+    <div class="container">
+      <div style="max-width: 760px; margin: 0 auto; text-align: center;">
+        <span class="hero-tag">
+          <i data-lucide="users" style="width: 16px; height: 16px;"></i>
+          The Story Behind Back2You
+        </span>
+        <h1 class="hero-headline" style="font-size: 2.75rem; margin-bottom: 1rem;">
+          Built by Students, for Students
+        </h1>
+        <p class="hero-subtitle" style="margin: 0 auto;">
+          Every semester, hundreds of calculators, water bottles, keys, and laptops get left behind in lecture halls, libraries, and labs. We wanted to build something faster and cleaner than scrolling through unorganized WhatsApp groups or waiting on paper logbooks at the main desk.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission & Purpose -->
+  <section class="section">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: center;">
+        <div>
+          <span class="section-tag">How It Started</span>
+          <h2 class="section-title">The Problem We Kept Running Into</h2>
+          <p style="color: var(--slate-600); font-size: 1.05rem; margin-bottom: 1.25rem;">
+            Last semester, Aditya left his scientific calculator on a desk in Lecture Hall B right after a midterm. Tracking it down took three days: asking in multiple class chats, checking with the library desk, and eventually finding out it had been handed to campus security with no note attached.
+          </p>
+          <p style="color: var(--slate-600); font-size: 1.05rem; margin-bottom: 1.5rem;">
+            Sameer and Aditya decided to build Back2You as a weekend project that grew into a full platform. We wrote the backend in clean C++ with SQLite so it runs fast on almost any server without needing heavy frameworks. We added an automated text matching helper to spot similarities between lost reports and found items, plus a verification step so anyone claiming an item has to describe it accurately first.
+          </p>
+          <div style="display: flex; gap: 2rem;">
+            <div>
+              <div style="font-size: 1.8rem; font-weight: 800; color: var(--primary-700);">9 Categories</div>
+              <div style="font-size: 0.85rem; color: var(--slate-500); font-weight: 600;">Covering Tech to IDs</div>
+            </div>
+            <div>
+              <div style="font-size: 1.8rem; font-weight: 800; color: var(--accent-600);">&lt; 15ms</div>
+              <div style="font-size: 0.85rem; color: var(--slate-500); font-weight: 600;">Average API Response</div>
+            </div>
+            <div>
+              <div style="font-size: 1.8rem; font-weight: 800; color: var(--status-found);">4 Key Hubs</div>
+              <div style="font-size: 0.85rem; color: var(--slate-500); font-weight: 600;">Central Campus Desks</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <img 
+            src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=1000&q=80" 
+            alt="Students collaborating on laptops in a campus study area"
+            style="border-radius: var(--radius-lg); box-shadow: var(--shadow-xl); width: 100%; height: 380px; object-fit: cover;"
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Meet The Team -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Developers</span>
+        <h2 class="section-title">Who Built This</h2>
+        <p class="section-desc">Back2You was developed by Aditya Rai and Sameer Chand as a joint systems and web development project.</p>
+      </div>
+
+      <div class="team-grid">
+        <!-- Collaborator 1: Sameer Chand -->
+        <article class="team-card">
+          <img 
+            src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" 
+            alt="Portrait of Sameer Chand" 
+            class="team-avatar"
+          >
+          <h3 class="team-name">Sameer Chand</h3>
+          <div class="team-role">Systems & Backend Architecture</div>
+          <p class="team-bio">
+            Worked on the SQLite database queries, password hashing routines, session token handling, and the keyword matching engine that compares lost and found item reports.
+          </p>
+          <div class="team-socials">
+            <a href="https://github.com/binsamdu" target="_blank" rel="noopener noreferrer" class="team-social-link" title="GitHub: @binsamdu">
+              <i data-lucide="github" style="width: 18px; height: 18px;"></i>
+            </a>
+            <a href="mailto:binsamdu@users.noreply.github.com" class="team-social-link" title="Email Sameer">
+              <i data-lucide="mail" style="width: 18px; height: 18px;"></i>
+            </a>
+          </div>
+        </article>
+
+        <!-- Collaborator 2: Aditya Rai -->
+        <article class="team-card">
+          <img 
+            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80" 
+            alt="Portrait of Aditya Rai" 
+            class="team-avatar"
+          >
+          <h3 class="team-name">Aditya Rai</h3>
+          <div class="team-role">API Design & Frontend Layout</div>
+          <p class="team-bio">
+            Focused on the claims verification workflow, API documentation, input validation checks, and building responsive HTML and CSS pages that work smoothly on phones and desktops.
+          </p>
+          <div class="team-socials">
+            <a href="https://github.com/Aadi4742" target="_blank" rel="noopener noreferrer" class="team-social-link" title="GitHub: @Aadi4742">
+              <i data-lucide="github" style="width: 18px; height: 18px;"></i>
+            </a>
+            <a href="mailto:Aadi4742@users.noreply.github.com" class="team-social-link" title="Email Aditya">
+              <i data-lucide="mail" style="width: 18px; height: 18px;"></i>
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Values -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Practical Design Choices</span>
+        <h2 class="section-title">What We Kept in Mind</h2>
+        <p class="section-desc">A few straightforward priorities we followed while building the project.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-box">
+          <div class="feature-icon-wrap" style="background-color: var(--primary-100); color: var(--primary-700);">
+            <i data-lucide="shield-check" style="width: 24px; height: 24px;"></i>
+          </div>
+          <h3 class="feature-title">Verify Before Handover</h3>
+          <p class="feature-desc">Anyone claiming an item has to submit identifying details (like engravings, lock screens, or unique marks) before the finder confirms the handoff.</p>
+        </div>
+
+        <div class="feature-box">
+          <div class="feature-icon-wrap" style="background-color: var(--accent-100); color: var(--accent-600);">
+            <i data-lucide="zap" style="width: 24px; height: 24px;"></i>
+          </div>
+          <h3 class="feature-title">Fast and Lightweight</h3>
+          <p class="feature-desc">Using C++17 and vanilla HTML/CSS means there are no massive JavaScript bundles or runtimes required to load the site.</p>
+        </div>
+
+        <div class="feature-box">
+          <div class="feature-icon-wrap" style="background-color: var(--status-found-bg); color: var(--status-found);">
+            <i data-lucide="heart-handshake" style="width: 24px; height: 24px;"></i>
+          </div>
+          <h3 class="feature-title">Direct Campus Locations</h3>
+          <p class="feature-desc">Found items link directly to real drop-off points like the Library circulation desk, central security office, or student union info point.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="m10 15 5-3-5-3v6Z"/>
+            </svg>
+            Back2You
+          </div>
+          <p class="footer-desc">
+            Empowering universities with an intelligent, reliable, and transparent lost-and-found management platform.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-links">
+            <li class="footer-link-item"><a href="index.html">Home</a></li>
+            <li class="footer-link-item"><a href="index.html#how-it-works">How It Works</a></li>
+            <li class="footer-link-item"><a href="index.html#recent-items">Recent Items</a></li>
+            <li class="footer-link-item"><a href="about.html">About Team</a></li>
+            <li class="footer-link-item"><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Campus Hubs</h4>
+          <ul class="footer-links">
+            <li class="footer-link-item"><a href="contact.html">Central Security Office</a></li>
+            <li class="footer-link-item"><a href="contact.html">Library Info Desk</a></li>
+            <li class="footer-link-item"><a href="contact.html">Student Union Center</a></li>
+            <li class="footer-link-item"><a href="contact.html">Gymnasium Reception</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Repository</h4>
+          <ul class="footer-links">
+            <li class="footer-link-item">
+              <a href="https://github.com/binsamdu/College-Lost-and-found" target="_blank" rel="noopener noreferrer">
+                <i data-lucide="github" style="width: 14px; height: 14px; vertical-align: middle; margin-right: 4px;"></i> GitHub Repository
+              </a>
+            </li>
+            <li class="footer-link-item"><a href="API_DOCS.md">API Documentation</a></li>
+            <li class="footer-link-item"><a href="contact.html">Help Desk Support</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Back2You Platform. All rights reserved.</div>
+        <div class="credits-line">
+          Designed and Developed by <strong>Aditya and Sameer</strong>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

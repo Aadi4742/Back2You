@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact & Campus Drop-Off Desks - Back2You</title>
+  <meta name="description" content="Get in touch with the Back2You campus team, locate official security drop-off desks, or submit general inquiries.">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- Sticky Navbar -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="m10 15 5-3-5-3v6Z"/>
+        </svg>
+        Back2You
+        <span class="brand-badge">Campus</span>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="index.html#how-it-works" class="nav-link">How It Works</a></li>
+          <li><a href="index.html#recent-items" class="nav-link">Recent Items</a></li>
+          <li><a href="about.html" class="nav-link">About Team</a></li>
+          <li><a href="contact.html" class="nav-link active">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="index.html#search" class="btn btn-outline">
+          <i data-lucide="search" style="width: 16px; height: 16px;"></i> Search Items
+        </a>
+        <a href="index.html#report" class="btn btn-primary">
+          <i data-lucide="plus-circle" style="width: 16px; height: 16px;"></i> Report Item
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Contact Hero -->
+  <section class="hero-section" style="padding: 4rem 0 3.5rem 0;">
+    <div class="container">
+      <div style="max-width: 760px; margin: 0 auto; text-align: center;">
+        <span class="hero-tag">
+          <i data-lucide="phone-forwarded" style="width: 16px; height: 16px;"></i>
+          Support & Campus Collection Points
+        </span>
+        <h1 class="hero-headline" style="font-size: 2.75rem; margin-bottom: 1rem;">
+          We're Here to Help You Reunite
+        </h1>
+        <p class="hero-subtitle" style="margin: 0 auto;">
+          Have questions regarding an item claim, need assistance verifying an item with security, or want to drop off found property in person? Reach out to our campus team below.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Grid -->
+  <section class="section">
+    <div class="container contact-grid">
+      <!-- Contact Form -->
+      <div class="contact-card">
+        <h2 style="font-size: 1.6rem; font-weight: 700; color: var(--slate-900); margin-bottom: 0.5rem;">
+          Send an Inquiry or Verification Request
+        </h2>
+        <p style="color: var(--slate-600); font-size: 0.95rem; margin-bottom: 2rem;">
+          Our support team coordinates with campus security desks daily to resolve pending claims and inquiries.
+        </p>
+
+        <form id="contactForm" onsubmit="handleContactSubmit(event)">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;">
+            <div class="form-group">
+              <label class="form-label" for="fullName">Full Name</label>
+              <input type="text" id="fullName" class="form-control" placeholder="e.g. Alex Rivera" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="email">University Email</label>
+              <input type="email" id="email" class="form-control" placeholder="username@campus.edu" required>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;">
+            <div class="form-group">
+              <label class="form-label" for="studentId">Student or Staff ID</label>
+              <input type="text" id="studentId" class="form-control" placeholder="e.g. STU-2026-4412" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="subject">Inquiry Type</label>
+              <select id="subject" class="form-control">
+                <option value="claim-status">Check Claim Status</option>
+                <option value="drop-off">Drop-Off Question</option>
+                <option value="item-verify">Physical Verification Appointment</option>
+                <option value="technical">Platform Bug or Feedback</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="message">Detailed Description</label>
+            <textarea id="message" class="form-control" rows="5" placeholder="Include item report ID or specific details..." required></textarea>
+          </div>
+
+          <div id="formAlert" style="display: none; padding: 0.85rem 1rem; border-radius: var(--radius-md); margin-bottom: 1.25rem; font-size: 0.9rem; font-weight: 500;"></div>
+
+          <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+            <i data-lucide="send" style="width: 18px; height: 18px;"></i> Submit Message
+          </button>
+        </form>
+      </div>
+
+      <!-- Campus Hubs Directory -->
+      <div>
+        <div class="info-box">
+          <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--slate-900); margin-bottom: 1.25rem;">
+            Official Campus Drop-Off Desks
+          </h3>
+
+          <div class="info-item">
+            <i data-lucide="shield" class="info-icon" style="width: 22px; height: 22px;"></i>
+            <div>
+              <div style="font-weight: 700; color: var(--slate-900);">Central Security Headquarters</div>
+              <div style="font-size: 0.85rem; color: var(--slate-600);">Administration Building, Ground Floor (Room 102)</div>
+              <div style="font-size: 0.8rem; color: var(--slate-500); margin-top: 0.2rem;">Hours: Open 24/7 &bull; Ext: 4401</div>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <i data-lucide="book-open" class="info-icon" style="width: 22px; height: 22px;"></i>
+            <div>
+              <div style="font-weight: 700; color: var(--slate-900);">Main University Library</div>
+              <div style="font-size: 0.85rem; color: var(--slate-600);">1st Floor Circulation & Service Desk</div>
+              <div style="font-size: 0.8rem; color: var(--slate-500); margin-top: 0.2rem;">Hours: Mon–Fri 7:30 AM – 11:00 PM</div>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <i data-lucide="coffee" class="info-icon" style="width: 22px; height: 22px;"></i>
+            <div>
+              <div style="font-weight: 700; color: var(--slate-900);">Student Union Center</div>
+              <div style="font-size: 0.85rem; color: var(--slate-600);">Information Kiosk near Main Dining Atrium</div>
+              <div style="font-size: 0.8rem; color: var(--slate-500); margin-top: 0.2rem;">Hours: Daily 8:00 AM – 9:00 PM</div>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <i data-lucide="activity" class="info-icon" style="width: 22px; height: 22px;"></i>
+            <div>
+              <div style="font-weight: 700; color: var(--slate-900);">Recreation & Sports Complex</div>
+              <div style="font-size: 0.85rem; color: var(--slate-600);">Front Reception Counter</div>
+              <div style="font-size: 0.8rem; color: var(--slate-500); margin-top: 0.2rem;">Hours: Daily 6:00 AM – 10:00 PM</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-box" style="background-color: var(--primary-50); border-color: var(--primary-200);">
+          <div style="display: flex; gap: 0.75rem; align-items: flex-start;">
+            <i data-lucide="alert-circle" style="color: var(--primary-700); flex-shrink: 0; width: 22px; height: 22px;"></i>
+            <div>
+              <div style="font-weight: 700; color: var(--primary-900); margin-bottom: 0.25rem;">High Value Items Procedure</div>
+              <p style="font-size: 0.85rem; color: var(--primary-800); line-height: 1.5;">
+                Electronics (smartphones, laptops) and wallets must be deposited directly into the Central Security Vault within 24 hours of finding.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="m10 15 5-3-5-3v6Z"/>
+            </svg>
+            Back2You
+          </div>
+          <p class="footer-desc">
+            Empowering universities with an intelligent, reliable, and transparent lost-and-found management platform.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-links">
+            <li class="footer-link-item"><a href="index.html">Home</a></li>
+            <li class="footer-link-item"><a href="index.html#how-it-works">How It Works</a></li>
+            <li class="footer-link-item"><a href="index.html#recent-items">Recent Items</a></li>
+            <li class="footer-link-item"><a href="about.html">About Team</a></li>
+            <li class="footer-link-item"><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Campus Hubs</h4>
+          <ul class="footer-links">
+            <li class="footer-link-item"><a href="contact.html">Central Security Office</a></li>
+            <li class="footer-link-item"><a href="contact.html">Library Info Desk</a></li>
+            <li class="footer-link-item"><a href="contact.html">Student Union Center</a></li>
+            <li class="footer-link-item"><a href="contact.html">Gymnasium Reception</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Repository</h4>
+          <ul class="footer-links">
+            <li class="footer-link-item">
+              <a href="https://github.com/binsamdu/College-Lost-and-found" target="_blank" rel="noopener noreferrer">
+                <i data-lucide="github" style="width: 14px; height: 14px; vertical-align: middle; margin-right: 4px;"></i> GitHub Repository
+              </a>
+            </li>
+            <li class="footer-link-item"><a href="API_DOCS.md">API Documentation</a></li>
+            <li class="footer-link-item"><a href="about.html">Architecture & Vision</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Back2You Platform. All rights reserved.</div>
+        <div class="credits-line">
+          Designed and Developed by <strong>Aditya and Sameer</strong>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const alertBox = document.getElementById('formAlert');
+      alertBox.style.display = 'block';
+      alertBox.style.backgroundColor = '#dcfce7';
+      alertBox.style.color = '#15803d';
+      alertBox.style.border = '1px solid #86efac';
+      alertBox.innerHTML = '<strong>Message Received!</strong> Our campus security and support liaison will follow up with your university email within 2 business hours.';
+      document.getElementById('contactForm').reset();
+    }
+  </script>
+</body>
+</html>
