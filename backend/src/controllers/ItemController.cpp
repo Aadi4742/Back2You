@@ -5,6 +5,7 @@
 #include "database/Database.h"
 #include "utils/Auth.h"
 #include "utils/Validation.h"
+#include "utils/MatchingEngine.h"
 #include <nlohmann/json.hpp>
 #include <iostream>
 
@@ -90,6 +91,10 @@ void ItemController::reportLostItem(const httplib::Request& req, httplib::Respon
     }
 
     auto createdItem = Database::getInstance().getItemById(newId);
+    if (createdItem.has_value()) {
+        // Trigger smart matching engine asynchronously / synchronously
+        MatchingEngine::notifyPotentialMatches(*createdItem);
+    }
 
     res.status = 201;
     res.set_content(nlohmann::json{
@@ -179,6 +184,10 @@ void ItemController::reportFoundItem(const httplib::Request& req, httplib::Respo
     }
 
     auto createdItem = Database::getInstance().getItemById(newId);
+    if (createdItem.has_value()) {
+        // Trigger smart matching engine
+        MatchingEngine::notifyPotentialMatches(*createdItem);
+    }
 
     res.status = 201;
     res.set_content(nlohmann::json{
@@ -191,7 +200,7 @@ void ItemController::reportFoundItem(const httplib::Request& req, httplib::Respo
 void ItemController::getItem(const httplib::Request& req, httplib::Response& res) {
     res.set_header("Content-Type", "application/json");
 
-    if (!req.has_param(":id") && req.matches.size() < 2) {
+    if (req.matches.size() < 2) {
         res.status = 400;
         res.set_content(nlohmann::json{
             {"success", false},
@@ -346,6 +355,96 @@ void ItemController::getCategories(const httplib::Request&, httplib::Response& r
     res.set_content(nlohmann::json{
         {"success", true},
         {"categories", arr}
+    }.dump(), "application/json");
+}
+
+void ItemController::searchItems(const httplib::Request& req, httplib::Response& res) {
+    res.set_header("Content-Type", "application/json");
+
+    std::string keyword;
+    if (req.has_param("q")) keyword = req.get_param_value("q");
+    else if (req.has_param("keyword")) keyword = req.get_param_value("keyword");
+
+    int categoryId = 0;
+    if (req.has_param("category_id")) {
+        try { categoryId = std::stoi(req.get_param_value("category_id")); } catch (...) {}
+    }
+
+    std::string location;
+    if (req.has_param("location")) location = req.get_param_value("location");
+
+    std::string date;
+    if (req.has_param("date")) date = req.get_param_value("date");
+
+    std::string status;
+    if (req.has_param("status")) status = req.get_param_value("status");
+
+    std::string type;
+    if (req.has_param("type")) type = req.get_param_value("type");
+
+    int limit = 50;
+    if (req.has_param("limit")) {
+        try { limit = std::clamp(std::stoi(req.get_param_value("limit")), 1, 100); } catch (...) {}
+    }
+
+    int offset = 0;
+    if (req.has_param("offset")) {
+        try { offset = std::max(0, std::stoi(req.get_param_value("offset"))); } catch (...) {}
+    }
+
+    auto items = Database::getInstance().getItems(keyword, categoryId, location, date, status, type, limit, offset);
+
+    nlohmann::json arr = nlohmann::json::array();
+    for (const auto& it : items) {
+        arr.push_back(it.toJson());
+    }
+
+    res.status = 200;
+    res.set_content(nlohmann::json{
+        {"success", true},
+        {"count", arr.size()},
+        {"items", arr}
+    }.dump(), "application/json");
+}
+
+void ItemController::getItemMatches(const httplib::Request& req, httplib::Response& res) {
+    res.set_header("Content-Type", "application/json");
+
+    if (req.matches.size() < 2) {
+        res.status = 400;
+        res.set_content(nlohmann::json{{"success", false}, {"error", "Missing item ID"}}.dump(), "application/json");
+        return;
+    }
+
+    int id = 0;
+    try {
+        id = std::stoi(req.matches[1]);
+    } catch (...) {
+        res.status = 400;
+        res.set_content(nlohmann::json{{"success", false}, {"error", "Invalid item ID"}}.dump(), "application/json");
+        return;
+    }
+
+    auto item = Database::getInstance().getItemById(id);
+    if (!item.has_value()) {
+        res.status = 404;
+        res.set_content(nlohmann::json{{"success", false}, {"error", "Item not found"}}.dump(), "application/json");
+        return;
+    }
+
+    auto matches = MatchingEngine::findMatches(*item, 25.0); // 25%+ match threshold
+
+    nlohmann::json arr = nlohmann::json::array();
+    for (const auto& match : matches) {
+        arr.push_back(match.toJson());
+    }
+
+    res.status = 200;
+    res.set_content(nlohmann::json{
+        {"success", true},
+        {"target_item", item->toJson()},
+        {"match_count", arr.size()},
+        {"matches", arr}
     }.dump(), "application/json");
 }
 

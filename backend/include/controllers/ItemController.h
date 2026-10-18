@@ -12,6 +12,8 @@ public:
     static void updateItem(const httplib::Request& req, httplib::Response& res);
     static void deleteItem(const httplib::Request& req, httplib::Response& res);
     static void getCategories(const httplib::Request& req, httplib::Response& res);
+    static void searchItems(const httplib::Request& req, httplib::Response& res);
+    static void getItemMatches(const httplib::Request& req, httplib::Response& res);
 };
 
 } // namespace back2you
