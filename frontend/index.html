@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Back2You - Campus Lost & Found Management Platform</title>
+  <meta name="description" content="Report lost items, list found belongings, and let our smart matching engine reunite you with what matters. Trusted campus lost and found.">
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- Sticky Navbar -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="m10 15 5-3-5-3v6Z"/>
+        </svg>
+        Back2You
+        <span class="brand-badge">Campus</span>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+          <li><a href="#recent-items" class="nav-link">Recent Items</a></li>
+          <li><a href="#features" class="nav-link">Features</a></li>
+          <li><a href="about.html" class="nav-link">About Team</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="#search" class="btn btn-outline">
+          <i data-lucide="search" style="width: 16px; height: 16px;"></i> Search
+        </a>
+        <a href="#report" class="btn btn-primary">
+          <i data-lucide="plus-circle" style="width: 16px; height: 16px;"></i> Report Item
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container hero-grid">
+      <div>
+        <div class="hero-tag">
+          <i data-lucide="shield-check" style="width: 16px; height: 16px;"></i>
+          Campus Lost & Found Hub
+        </div>
+        <h1 class="hero-headline">
+          Lost it? Found it?<br>
+          <span class="accent-text">Back2You.</span>
+        </h1>
+        <p class="hero-subtitle">
+          A simple campus lost-and-found hub built for students and staff. Report misplaced items, log items you found, and check ownership claims before making a handover.
+        </p>
+        <div class="hero-buttons" id="report">
+          <a href="#search" class="btn btn-primary btn-lg">
+            <i data-lucide="help-circle" style="width: 20px; height: 20px;"></i> Report Lost Item
+          </a>
+          <a href="#search" class="btn btn-accent btn-lg">
+            <i data-lucide="check-circle" style="width: 20px; height: 20px;"></i> Report Found Item
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-image-wrapper">
+        <img 
+          src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1000&q=80" 
+          alt="Happy university students on campus celebrating a reunited belonging"
+          class="hero-image"
+        >
+        <div class="hero-float-badge">
+          <div class="float-badge-icon">
+            <i data-lucide="award" style="width: 22px; height: 22px;"></i>
+          </div>
+          <div>
+            <div style="font-weight: 700; font-size: 0.95rem; color: var(--slate-900);">88% Recovery Rate</div>
+            <div style="font-size: 0.8rem; color: var(--slate-500);">Over 1,200 items reunited this year</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Search & Quick Filter Bar -->
+  <div class="container search-bar-section" id="search">
+    <div class="search-card">
+      <div class="search-input-group">
+        <i data-lucide="search" class="search-icon" style="width: 18px; height: 18px;"></i>
+        <input type="text" id="searchInput" class="search-input" placeholder="Search by title, location (e.g. 'Library', 'Calculator', 'Keys')...">
+      </div>
+      <select id="categorySelect" class="search-select">
+        <option value="">All Categories</option>
+        <option value="1">Electronics</option>
+        <option value="2">Wallets & IDs</option>
+        <option value="3">Keys</option>
+        <option value="4">Books & Stationery</option>
+        <option value="5">Bags & Backpacks</option>
+        <option value="6">Clothing & Apparel</option>
+      </select>
+      <select id="typeSelect" class="search-select">
+        <option value="">All Statuses</option>
+        <option value="LOST">Lost Reports</option>
+        <option value="FOUND">Found Items</option>
+      </select>
+      <button class="btn btn-primary" onclick="handleSearch()">
+        <i data-lucide="sliders" style="width: 18px; height: 18px;"></i> Filter Items
+      </button>
+    </div>
+  </div>
+
+  <!-- How It Works Section -->
+  <section class="section" id="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Seamless Process</span>
+        <h2 class="section-title">How Back2You Works</h2>
+        <p class="section-desc">Four simple steps from losing an item to safely holding it back in your hands.</p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <span class="step-number">01</span>
+          <div class="step-icon-wrap">
+            <i data-lucide="clipboard-list" style="width: 28px; height: 28px;"></i>
+          </div>
+          <h3 class="step-title">Report Misplaced Item</h3>
+          <p class="step-desc">Provide item details, last known location on campus, description, and an optional reference photo.</p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-number">02</span>
+          <div class="step-icon-wrap">
+            <i data-lucide="cpu" style="width: 28px; height: 28px;"></i>
+          </div>
+          <h3 class="step-title">Smart AI Matching</h3>
+          <p class="step-desc">Our backend matching engine scores token keywords, categories, and campus zones to instantly suggest matches.</p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-number">03</span>
+          <div class="step-icon-wrap">
+            <i data-lucide="shield-alert" style="width: 28px; height: 28px;"></i>
+          </div>
+          <h3 class="step-title">Submit Verification Claim</h3>
+          <p class="step-desc">Provide unique proof of ownership (identifying marks, lock codes, or receipts) to prevent false claims.</p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-number">04</span>
+          <div class="step-icon-wrap">
+            <i data-lucide="handshake" style="width: 28px; height: 28px;"></i>
+          </div>
+          <h3 class="step-title">Safely Returned</h3>
+          <p class="step-desc">Collect your verified belonging at designated campus security desks or coordinate a safe handover.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recent Items Section -->
+  <section class="section section-alt" id="recent-items">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Live Campus Feed</span>
+        <h2 class="section-title">Recently Reported Items</h2>
+        <p class="section-desc">Real-time reports across campus buildings, lecture halls, and facilities.</p>
+      </div>
+
+      <div class="items-grid" id="itemsFeed">
+        <!-- Item Card 1 -->
+        <article class="item-card">
+          <div class="item-img-wrap">
+            <img 
+              src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=800&q=80" 
+              alt="MacBook Air laptop with stickers on table" 
+              class="item-img"
+            >
+            <span class="item-badge badge-lost">Lost</span>
+          </div>
+          <div class="item-body">
+            <span class="item-category">Electronics</span>
+            <h3 class="item-title">MacBook Air M2 13-inch (Space Gray)</h3>
+            <p class="item-desc">Left in 2nd floor silent reading room. Has a GitHub and React sticker on the lid.</p>
+            <div class="item-meta">
+              <div class="meta-row">
+                <i data-lucide="map-pin" style="width: 14px; height: 14px;"></i> Central Library, 2nd Floor
+              </div>
+              <div class="meta-row">
+                <i data-lucide="calendar" style="width: 14px; height: 14px;"></i> October 15, 2026
+              </div>
+            </div>
+          </div>
+          <div class="item-footer">
+            <span style="font-size: 0.85rem; color: var(--slate-500);">By Alex Rivera</span>
+            <a href="contact.html" class="btn btn-outline" style="padding: 0.35rem 0.8rem; font-size: 0.85rem;">I Found This</a>
+          </div>
+        </article>
+
+        <!-- Item Card 2 -->
+        <article class="item-card">
+          <div class="item-img-wrap">
+            <img 
+              src="https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=800&q=80" 
+              alt="Brown leather wallet on clean surface" 
+              class="item-img"
+            >
+            <span class="item-badge badge-found">Found</span>
+          </div>
+          <div class="item-body">
+            <span class="item-category">Wallets & IDs</span>
+            <h3 class="item-title">Brown Leather Wallet with Student ID</h3>
+            <p class="item-desc">Found near cafeteria cashier. Turned into campus security with student ID inside.</p>
+            <div class="item-meta">
+              <div class="meta-row">
+                <i data-lucide="map-pin" style="width: 14px; height: 14px;"></i> Student Union Cafeteria
+              </div>
+              <div class="meta-row">
+                <i data-lucide="building" style="width: 14px; height: 14px;"></i> Held at: Security Desk (Rm 102)
+              </div>
+            </div>
+          </div>
+          <div class="item-footer">
+            <span style="font-size: 0.85rem; color: var(--slate-500);">By Campus Security</span>
+            <a href="contact.html" class="btn btn-accent" style="padding: 0.35rem 0.8rem; font-size: 0.85rem;">Claim Item</a>
+          </div>
+        </article>
+
+        <!-- Item Card 3 -->
+        <article class="item-card">
+          <div class="item-img-wrap">
+            <img 
+              src="https://images.unsplash.com/photo-1594980596870-8aa52a78d8cd?auto=format&fit=crop&w=800&q=80" 
+              alt="Scientific engineering calculator on desk" 
+              class="item-img"
+            >
+            <span class="item-badge badge-lost">Lost</span>
+          </div>
+          <div class="item-body">
+            <span class="item-category">Books & Stationery</span>
+            <h3 class="item-title">Casio fx-991EX Scientific Calculator</h3>
+            <p class="item-desc">Forgotten on row 4 seat following Calculus II midterm exam. Black cover with initials.</p>
+            <div class="item-meta">
+              <div class="meta-row">
+                <i data-lucide="map-pin" style="width: 14px; height: 14px;"></i> Science Block - Lecture Hall B
+              </div>
+              <div class="meta-row">
+                <i data-lucide="calendar" style="width: 14px; height: 14px;"></i> October 14, 2026
+              </div>
+            </div>
+          </div>
+          <div class="item-footer">
+            <span style="font-size: 0.85rem; color: var(--slate-500);">By Marcus Chen</span>
+            <a href="contact.html" class="btn btn-outline" style="padding: 0.35rem 0.8rem; font-size: 0.85rem;">I Found This</a>
+          </div>
+        </article>
+
+        <!-- Item Card 4 -->
+        <article class="item-card">
+          <div class="item-img-wrap">
+            <img 
+              src="https://images.unsplash.com/photo-1582139329536-e7284fece509?auto=format&fit=crop&w=800&q=80" 
+              alt="Keys on lanyard lying on bench" 
+              class="item-img"
+            >
+            <span class="item-badge badge-found">Found</span>
+          </div>
+          <div class="item-body">
+            <span class="item-category">Keys</span>
+            <h3 class="item-title">Set of 3 Keys on Red Lanyard</h3>
+            <p class="item-desc">Dorm key and Kryptonite bike lock key on a red collegiate lanyard found on gymnasium bleachers.</p>
+            <div class="item-meta">
+              <div class="meta-row">
+                <i data-lucide="map-pin" style="width: 14px; height: 14px;"></i> Sports Complex Bleachers
+              </div>
+              <div class="meta-row">
+                <i data-lucide="building" style="width: 14px; height: 14px;"></i> Held at: Gym Reception Desk
+              </div>
+            </div>
+          </div>
+          <div class="item-footer">
+            <span style="font-size: 0.85rem; color: var(--slate-500);">By Staff</span>
+            <a href="contact.html" class="btn btn-accent" style="padding: 0.35rem 0.8rem; font-size: 0.85rem;">Claim Item</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Features Section -->
+  <section class="section" id="features">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Key Features</span>
+        <h2 class="section-title">How the Platform Helps</h2>
+        <p class="section-desc">Practical tools designed to help items find their way back to their rightful owners quickly.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-box">
+          <div class="feature-icon-wrap">
+            <i data-lucide="sparkles" style="width: 24px; height: 24px;"></i>
+          </div>
+          <h3 class="feature-title">Keyword & Location Matching</h3>
+          <p class="feature-desc">The backend compares words in the title, description, category, and building zone to highlight potential pairs automatically.</p>
+        </div>
+
+        <div class="feature-box">
+          <div class="feature-icon-wrap">
+            <i data-lucide="lock" style="width: 24px; height: 24px;"></i>
+          </div>
+          <h3 class="feature-title">Proof of Ownership Check</h3>
+          <p class="feature-desc">Claimants describe hidden details like stickers, serial codes, or wallpapers so finders know they are returning it to the right person.</p>
+        </div>
+
+        <div class="feature-box">
+          <div class="feature-icon-wrap">
+            <i data-lucide="bell" style="width: 24px; height: 24px;"></i>
+          </div>
+          <h3 class="feature-title">Notification Alerts</h3>
+          <p class="feature-desc">Get an in-app update whenever a potential match gets posted or someone files a claim on an item you reported.</p>
+        </div>
+
+        <div class="feature-box">
+          <div class="feature-icon-wrap">
+            <i data-lucide="map" style="width: 24px; height: 24px;"></i>
+          </div>
+          <h3 class="feature-title">Designated Collection Desks</h3>
+          <p class="feature-desc">Shows which campus desk is holding the item — whether it's at the Library 1st floor counter, gym desk, or main security post.</p>
+        </div>
+
+        <div class="feature-box">
+          <div class="feature-icon-wrap">
+            <i data-lucide="user-check" style="width: 24px; height: 24px;"></i>
+          </div>
+          <h3 class="feature-title">Admin Moderation Tools</h3>
+          <p class="feature-desc">Staff and security accounts can review submitted claims, update item status, and resolve handovers directly.</p>
+        </div>
+
+        <div class="feature-box">
+          <div class="feature-icon-wrap">
+            <i data-lucide="database" style="width: 24px; height: 24px;"></i>
+          </div>
+          <h3 class="feature-title">C++ and SQLite Backend</h3>
+          <p class="feature-desc">Built in standard C++17 with SQLite, keeping memory low and query responses fast without needing heavy external services.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Statistics Counters Section -->
+  <section class="stats-section">
+    <div class="container stats-grid">
+      <div>
+        <div class="stat-num">1,240+</div>
+        <div class="stat-label">Items Reunited</div>
+      </div>
+      <div>
+        <div class="stat-num">48 hrs</div>
+        <div class="stat-label">Average Return Time</div>
+      </div>
+      <div>
+        <div class="stat-num">88.4%</div>
+        <div class="stat-label">Verified Recovery Rate</div>
+      </div>
+      <div>
+        <div class="stat-num">12</div>
+        <div class="stat-label">Campus Safe Desks</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action Banner -->
+  <section class="section">
+    <div class="container">
+      <div class="cta-box">
+        <h2 class="cta-title">Misplaced something valuable today?</h2>
+        <p class="cta-desc">
+          Don't wait for your belongings to disappear forever. Over 80% of items turned into campus desks are claimed within 48 hours of listing on Back2You.
+        </p>
+        <div class="cta-actions">
+          <a href="#search" class="btn btn-accent btn-lg">
+            <i data-lucide="plus-circle" style="width: 20px; height: 20px;"></i> File a Report Now
+          </a>
+          <a href="contact.html" class="btn btn-outline-white btn-lg">
+            <i data-lucide="phone-call" style="width: 20px; height: 20px;"></i> Contact Campus Help Desk
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="m10 15 5-3-5-3v6Z"/>
+            </svg>
+            Back2You
+          </div>
+          <p class="footer-desc">
+            Empowering universities with an intelligent, reliable, and transparent lost-and-found management platform.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-links">
+            <li class="footer-link-item"><a href="index.html">Home</a></li>
+            <li class="footer-link-item"><a href="#how-it-works">How It Works</a></li>
+            <li class="footer-link-item"><a href="#recent-items">Recent Items</a></li>
+            <li class="footer-link-item"><a href="about.html">About Team</a></li>
+            <li class="footer-link-item"><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Campus Hubs</h4>
+          <ul class="footer-links">
+            <li class="footer-link-item"><a href="contact.html">Central Security Office</a></li>
+            <li class="footer-link-item"><a href="contact.html">Library Info Desk</a></li>
+            <li class="footer-link-item"><a href="contact.html">Student Union Center</a></li>
+            <li class="footer-link-item"><a href="contact.html">Gymnasium Reception</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Repository</h4>
+          <ul class="footer-links">
+            <li class="footer-link-item">
+              <a href="https://github.com/binsamdu/College-Lost-and-found" target="_blank" rel="noopener noreferrer">
+                <i data-lucide="github" style="width: 14px; height: 14px; vertical-align: middle; margin-right: 4px;"></i> GitHub Repository
+              </a>
+            </li>
+            <li class="footer-link-item"><a href="API_DOCS.md">API Documentation</a></li>
+            <li class="footer-link-item"><a href="about.html">Platform Roadmap</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Back2You Platform. All rights reserved.</div>
+        <div class="credits-line">
+          Designed and Developed by <strong>Aditya and Sameer</strong>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+
+    function handleSearch() {
+      const q = document.getElementById('searchInput').value.trim().toLowerCase();
+      const cat = document.getElementById('categorySelect').value;
+      const type = document.getElementById('typeSelect').value;
+
+      const cards = document.querySelectorAll('#itemsFeed .item-card');
+      cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        const matchesQ = !q || text.includes(q);
+        const matchesType = !type || (type === 'LOST' && text.includes('lost')) || (type === 'FOUND' && text.includes('found'));
+        if (matchesQ && matchesType) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    document.getElementById('searchInput').addEventListener('keyup', (e) => {
+      if (e.key === 'Enter') handleSearch();
+    });
+  </script>
+</body>
+</html>
